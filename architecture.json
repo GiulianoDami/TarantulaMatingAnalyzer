@@ -1,0 +1,42 @@
+{
+    "language": "TypeScript",
+    "dependency_file": "package.json",
+    "dependencies": ["typescript", "@types/node"],
+    "files": [
+        {
+            "path": "src/index.ts",
+            "description": "Main entry point and export definitions",
+            "exports": ["class TarantulaAnalyzer", "interface MatingData", "interface DefensiveProfile"]
+        },
+        {
+            "path": "src/core/analyzer.ts",
+            "description": "Core logic for analyzing tarantula mating behaviors",
+            "imports_from_other_files": [],
+            "exports": ["class TarantulaAnalyzer"]
+        },
+        {
+            "path": "src/types/dataInterfaces.ts",
+            "description": "Type definitions for input data structures",
+            "imports_from_other_files": [],
+            "exports": ["interface MatingData", "interface DefensiveProfile"]
+        },
+        {
+            "path": "src/utils/mathUtils.ts",
+            "description": "Mathematical utilities for morphological calculations",
+            "imports_from_other_files": [],
+            "exports": ["function calculateAppendageRatio(number, number)", "function normalizeValue(number, number, number)"]
+        },
+        {
+            "path": "src/services/classificationService.ts",
+            "description": "Taxonomic classification and genus comparison logic",
+            "imports_from_other_files": ["core/analyzer.ts"],
+            "exports": ["class ClassificationService"]
+        },
+        {
+            "path": "src/services/statisticsService.ts",
+            "description": "Statistical analysis and reporting module",
+            "imports_from_other_files": ["core/analyzer.ts"],
+            "exports": ["class StatisticsService"]
+        }
+    ]
+}
